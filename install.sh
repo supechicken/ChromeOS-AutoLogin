@@ -2,7 +2,7 @@
 set -eu
 
 GH_REPO='supechicken/ChromeOS-AutoLogin'
-RELEASE_VERSION=v0.1
+RELEASE_VERSION=v0.1.1
 
 ARCH="$(uname -m)"
 
