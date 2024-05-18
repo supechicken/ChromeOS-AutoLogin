@@ -49,7 +49,7 @@ fi
 cd /tmp
 
 echo '[+] Downloading ChromeOS-AutoLogin...'
-curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/releases/download/v0.1/cros-autologin_$(uname -m)" -o cros-autologin
+curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/releases/download/latest/cros-autologin_$(uname -m)" -o cros-autologin
 curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
 
 echo '[+] Installing...'
