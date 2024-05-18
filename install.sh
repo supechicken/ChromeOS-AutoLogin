@@ -4,6 +4,8 @@ set -eu
 GH_REPO='supechicken/ChromeOS-AutoLogin'
 RELEASE_VERSION=v0.1
 
+ARCH="$(uname -m)"
+
 # prevent conflict between system libraries and Chromebrew libraries
 unset LD_LIBRARY_PATH
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin
@@ -14,8 +16,8 @@ function remount_rootfs() {
 }
 
 function remove_rootfs_verification() {
-  # KERN-A B for arm  ROOT-A B for x64
-  if [[ "$ARCH" =~ "arm64" ]];then
+  # KERN-A B for arm, ROOT-A B for x64
+  if [[ "${ARCH}" == 'aarch64' ]];then
     /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 2
     /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 4
   else
@@ -52,7 +54,7 @@ fi
 cd /tmp
 
 echo '[+] Downloading ChromeOS-AutoLogin...'
-curl -LsS -# "https://github.com/${GH_REPO}/releases/download/${RELEASE_VERSION}/cros-autologin-$(uname -m)" -o cros-autologin
+curl -LsS -# "https://github.com/${GH_REPO}/releases/download/${RELEASE_VERSION}/cros-autologin-${ARCH}" -o cros-autologin
 curl -LsS -# "https://github.com/${GH_REPO}/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
 
 echo '[+] Installing...'
