@@ -8,7 +8,7 @@ Once the ChromeOS login prompt shows, the program creates a virtual keyboard and
 ## Installation
 
 > [!NOTE]
-> ChromeOS developer mode need to be enabled first, [see here](https://github.com/chromebrew/chromebrew?tab=readme-ov-file#prerequisites) for more information.
+> ChromeOS developer mode needs to be enabled first, [see here](https://github.com/chromebrew/chromebrew?tab=readme-ov-file#prerequisites) for more information.
 
 Run this in VT-2 console:
 ```shell
