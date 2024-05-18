@@ -11,7 +11,7 @@ echo "[+] Installing..."
 install -Dm755 cros-autologin /usr/local/bin/
 install -Dm644 cros-autologin.conf /etc/init/
 
-read -p "Enter your Google account password (will be stored locally, protected by Unix permission): " password
+read -sp "Enter your Google account password (will be stored locally, protected by Unix permission): " password
 
 mkdir -p /usr/local/etc/cros-autologin/
 echo -n "${password}" > /usr/local/etc/cros-autologin/password
