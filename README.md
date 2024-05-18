@@ -17,6 +17,6 @@ sudo rm -rf /usr/local/etc/cros-autologin /usr/local/bin/cros-autologin /etc/ini
 > This project was written in Crystal, to build this you will need to install `crystal` first
 
 ```shell
-crystal build --release --static src/autologin.cr
+crystal build --progress --release --static src/autologin.cr
 llvm-strip autologin
 ```
