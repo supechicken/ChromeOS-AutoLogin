@@ -30,3 +30,6 @@ sudo rm -rf /usr/local/etc/cros-autologin /usr/local/bin/cros-autologin /etc/ini
 crystal build --progress --release --static src/autologin.cr
 llvm-strip autologin
 ```
+
+## License
+This project including all of its source files is released under the terms of [GNU General Public License (version 3 or later)](http://www.gnu.org/licenses/gpl.txt).
