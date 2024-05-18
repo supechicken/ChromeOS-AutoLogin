@@ -1,7 +1,8 @@
 require "./lib/keycode.cr"
 require "./lib/uinput.cr"
 
-LOG = File.open("/tmp/cros-autologin.log", "w")
+LOG      = File.open("/tmp/cros-autologin.log", "w")
+LOG.sync = true
 
 LOG.puts "cros-autologin: Initializing uinput dummy device..."
 Uinput.init
