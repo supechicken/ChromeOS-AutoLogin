@@ -54,8 +54,8 @@ fi
 cd /tmp
 
 echo '[+] Downloading ChromeOS-AutoLogin...'
-curl -LsS -# "https://github.com/${GH_REPO}/releases/download/${RELEASE_VERSION}/cros-autologin-${ARCH}" -o cros-autologin
-curl -LsS -# "https://github.com/${GH_REPO}/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
+curl -L# "https://github.com/${GH_REPO}/releases/download/${RELEASE_VERSION}/cros-autologin-${ARCH}" -o cros-autologin
+curl -L# "https://github.com/${GH_REPO}/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
 
 echo '[+] Installing...'
 install -Dm755 cros-autologin /usr/local/bin/
