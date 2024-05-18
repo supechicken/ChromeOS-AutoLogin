@@ -1,6 +1,9 @@
 #!/bin/bash
 set -eu
 
+GH_REPO='supechicken/ChromeOS-AutoLogin'
+RELEASE_VERSION=v0.1
+
 # prevent conflict between system libraries and Chromebrew libraries
 unset LD_LIBRARY_PATH
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin
@@ -33,7 +36,7 @@ fi
 if ! remount_rootfs; then
   echo -e "${YELLOW}Remount failed. Did you disable rootFS verification?${RESET}" >&2
   read -N1 -p 'Disable rootFS verification now? (This will reboot your system) [Y/n]: ' response
-  echo -e "\n"
+  echo -e '\n'
 
   case $response in
   Y|y)
@@ -49,18 +52,18 @@ fi
 cd /tmp
 
 echo '[+] Downloading ChromeOS-AutoLogin...'
-curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/releases/download/latest/cros-autologin-$(uname -m)" -o cros-autologin
-curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
+curl -LsS -# "https://github.com/${GH_REPO}/releases/download/${RELEASE_VERSION}/cros-autologin-$(uname -m)" -o cros-autologin
+curl -LsS -# "https://github.com/${GH_REPO}/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
 
 echo '[+] Installing...'
 install -Dm755 cros-autologin /usr/local/bin/
 install -Dm644 cros-autologin.conf /etc/init/
 
-read -sp "Enter your Google account password (will be stored locally, protected by Unix permission): " password
+read -sp 'Enter your Google account password (will be stored locally, protected by Unix permission): ' password
 
 mkdir -p /usr/local/etc/cros-autologin/
 echo -n "${password}" > /usr/local/etc/cros-autologin/password
-echo
+echo -en '\n\n'
 
 echo '[+] Setting up file permission...'
 chown -R root:root /usr/local/etc/cros-autologin
