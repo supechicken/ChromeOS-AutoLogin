@@ -12,7 +12,9 @@ dbus_monitor = Process.new "dbus-monitor", ["--system", "--monitor", "type='sign
 dbus_monitor.output.read(Bytes.new(1024))
 
 dbus_monitor.output.gets()
-sleep(1.5)
+
+# wait for the login prompt to fully load
+sleep(3)
 
 LOG.puts "cros-autologin: Autotyping password..."
 
