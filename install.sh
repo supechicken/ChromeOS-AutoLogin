@@ -3,9 +3,9 @@ set -eu
 
 cd /tmp
 
-echo "[+] Downloading cros-autologin..."
-curl -L "https://github.com/supechicken/cros-autologin/releases/download/v0.1/cros-autologin_$(uname -m)" -o cros-autologin
-curl -L "https://github.com/supechicken/cros-autologin/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
+echo "[+] Downloading ChromeOS-AutoLogin..."
+curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/releases/download/v0.1/cros-autologin_$(uname -m)" -o cros-autologin
+curl -L "https://github.com/supechicken/ChromeOS-AutoLogin/raw/main/upstart/cros-autologin.conf" -o cros-autologin.conf
 
 echo "[+] Installing..."
 install -Dm755 cros-autologin /usr/local/bin/

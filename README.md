@@ -3,7 +3,7 @@ Log in automatically on ChromeOS startup using your password.
 
 ### Installation
 ```shell
-sudo bash <(curl -L https://github.com/supechicken/cros-autologin/raw/main/install.sh)
+sudo bash -c "$(curl -L https://github.com/supechicken/ChromeOS-AutoLogin/raw/main/install.sh)"
 ```
 
 ## Building
